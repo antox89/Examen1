@@ -308,24 +308,22 @@ public class Principal extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bt_ejecutar)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_ejecutar)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addGap(32, 32, 32)
-                .addComponent(bt_ejecutar)
-                .addContainerGap(361, Short.MAX_VALUE))
+                    .addComponent(bt_ejecutar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(425, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ejecutar", jPanel3);
@@ -449,7 +447,7 @@ public class Principal extends javax.swing.JFrame {
         String username="",password="";
         
         
-        int r=Usuarios.buscar(tf_user.getText(), password);
+        int r=Usuarios.buscar(tf_user.getText(), tf_password.getText());
         
         
         
@@ -506,7 +504,7 @@ public class Principal extends javax.swing.JFrame {
             
             Usuarios user = new Usuarios(nombre, correo, usuario, contrasena, edad);
             
-            //user.agregarClases(new ArrayList<>());
+            user.setClases(new ArrayList<Clases>());
             
             usuarios.add(user);
             
@@ -539,10 +537,12 @@ public class Principal extends javax.swing.JFrame {
             case "create class":
                 
                 String nombre=JOptionPane.showInputDialog(jd_logeado, "Nombre de la Clase:");
-                clase.add(new Clases(nombre));
+                
+                Clases x = new Clases(nombre);
+                clase.add(x);
                 
                 DefaultListModel modelo = (DefaultListModel)jl_clases.getModel();
-                modelo.addElement(clase);
+                modelo.addElement(x);
                 jl_clases.setModel(modelo);
                 
                 ta_command.setText("");
@@ -570,12 +570,32 @@ public class Principal extends javax.swing.JFrame {
                     clase.remove(posi);
                 }
                 break;
+            case "add atribute":
+                int nClase=Integer.parseInt(
+                        JOptionPane.showInputDialog("Posición de la Clase"));
+                nClase=nClase-1;
+                
+                Usuarios persona = usuarios.get(nClase);
+                System.out.println("Nombre: "+persona.getNombre());
+                
+                Atributos at= new Atributos();
+                
+                String tipoAtributo=
+                        JOptionPane.showInputDialog("Tipo de la Clase");
+                
+                
+                
+                String nombreAtributo=
+                        JOptionPane.showInputDialog("Nombre de la Clase");
+                ((Atributos)atributos.get(nClase)).setNombre(nombreAtributo);
+                break;
+                
         }
     }//GEN-LAST:event_bt_ejecutarMouseClicked
 
     private void ta_commandKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta_commandKeyPressed
         if(evt.getKeyCode() == evt.VK_ENTER){
-            System.out.println("hola");
+            JOptionPane.showMessageDialog(jd_logeado, "Presione ingresar");
         }
     }//GEN-LAST:event_ta_commandKeyPressed
 
@@ -665,6 +685,7 @@ public class Principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public static int in;
+    public static ArrayList<Atributos> atributos = new ArrayList();
     public static ArrayList<Usuarios> usuarios = new ArrayList();
     public static ArrayList<Clases> clase= new ArrayList();
     String usu="admin",pass="123";

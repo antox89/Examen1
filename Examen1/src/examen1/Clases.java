@@ -17,6 +17,14 @@ public class Clases {
     public Clases(String nombre) {
         this.nombre = nombre;
     }
+    
+    public void agregarAtributo(Atributos atributo){
+        this.atributos.add(atributo);
+    }
+    
+    public void agregarMetodo(Metodos metodo){
+        this.metodos.add(metodo);
+    }
 
     public String getNombre() {
         return nombre;
