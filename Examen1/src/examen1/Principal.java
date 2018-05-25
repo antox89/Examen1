@@ -6,6 +6,7 @@
 package examen1;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
@@ -53,14 +54,14 @@ public class Principal extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jl_clases = new javax.swing.JList<>();
         jLabel16 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        ta_command = new javax.swing.JTextArea();
+        bt_ejecutar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -186,7 +187,8 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel15.setText("Password:");
 
-        jScrollPane1.setViewportView(jList1);
+        jl_clases.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_clases);
 
         jLabel16.setText("Lista de Clases");
 
@@ -284,11 +286,21 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel17.setText("Comando:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        ta_command.setColumns(20);
+        ta_command.setRows(5);
+        ta_command.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ta_commandKeyPressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(ta_command);
 
-        jButton1.setText("Ejecutar");
+        bt_ejecutar.setText("Ejecutar");
+        bt_ejecutar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_ejecutarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -297,7 +309,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(bt_ejecutar)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(18, 18, 18)
@@ -312,7 +324,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
                 .addGap(32, 32, 32)
-                .addComponent(jButton1)
+                .addComponent(bt_ejecutar)
                 .addContainerGap(361, Short.MAX_VALUE))
         );
 
@@ -434,14 +446,23 @@ public class Principal extends javax.swing.JFrame {
 
     private void bt_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_loginMouseClicked
         // TODO add your handling code here:
+        String username="",password="";
+        
+        
+        int r=Usuarios.buscar(tf_user.getText(), password);
+        
+        
         
         for (Usuarios usuario : usuarios) {
             if(usuario instanceof Usuarios){
-                System.out.println("Aquí está");
+                for (int i = 0; i < usuarios.size(); i++) {
+                    username=usuarios.get(i).getNombre();
+                    password=usuarios.get(i).getPassword();
+                }
             }
         }
         
-        if(tf_user.getText().equals(usu)&&tf_password.getText().equals(pass)){
+        if(tf_user.getText().equals(username)&&tf_password.getText().equals(password)){
             
             tf_user.setText("");
             tf_password.setText("");
@@ -511,6 +532,53 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bt_signUpMouseClicked
 
+    private void bt_ejecutarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ejecutarMouseClicked
+        String menu="";
+        menu=ta_command.getText();
+        switch(menu){
+            case "create class":
+                
+                String nombre=JOptionPane.showInputDialog(jd_logeado, "Nombre de la Clase:");
+                clase.add(new Clases(nombre));
+                
+                DefaultListModel modelo = (DefaultListModel)jl_clases.getModel();
+                modelo.addElement(clase);
+                jl_clases.setModel(modelo);
+                
+                ta_command.setText("");
+                JOptionPane.showMessageDialog(jd_logeado, "Clase creada con éxito");
+                break;
+            case "modify class":
+                int pos=Integer.parseInt(
+                        JOptionPane.showInputDialog("Posición de la Clase"));
+                
+                
+                if(pos>=0 && pos <clase.size() 
+                        && clase.get(pos) instanceof Clases){
+                    String nombreC=JOptionPane.showInputDialog("Nuevo nombre de la clase");
+                    
+                    ((Clases)clase.get(pos)).setNombre(nombreC);
+                }
+                break;
+            case "delete class":
+                int posi=Integer.parseInt(
+                        JOptionPane.showInputDialog("Eliminar Clase"));
+                
+                if(posi>=0 && posi <clase.size() 
+                        && clase.get(posi) instanceof Clases){
+                    
+                    clase.remove(posi);
+                }
+                break;
+        }
+    }//GEN-LAST:event_bt_ejecutarMouseClicked
+
+    private void ta_commandKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta_commandKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            System.out.println("hola");
+        }
+    }//GEN-LAST:event_ta_commandKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -547,10 +615,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_ejecutar;
     private javax.swing.JButton bt_login;
     private javax.swing.JButton bt_signUp;
     private javax.swing.JButton bt_signup;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -569,7 +637,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -579,7 +646,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -587,6 +653,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JDialog jd_logeado;
     private javax.swing.JDialog jd_registrar;
+    private javax.swing.JList<String> jl_clases;
+    private javax.swing.JTextArea ta_command;
     private javax.swing.JTextField tf_edadR;
     private javax.swing.JTextField tf_emailR;
     private javax.swing.JTextField tf_nombreR;
@@ -596,6 +664,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_userR;
     // End of variables declaration//GEN-END:variables
 
-    ArrayList<Usuarios> usuarios = new ArrayList();
+    public static int in;
+    public static ArrayList<Usuarios> usuarios = new ArrayList();
+    public static ArrayList<Clases> clase= new ArrayList();
     String usu="admin",pass="123";
+    
 }

@@ -370,10 +370,10 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JList" name="jList1">
+                    <Component class="javax.swing.JList" name="jl_clases">
                       <Properties>
-                        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                          <StringArray count="0"/>
+                        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new DefaultListModel()" type="code"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -426,7 +426,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="bt_ejecutar" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -446,7 +446,7 @@
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="bt_ejecutar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="361" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -465,18 +465,24 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea1">
+                    <Component class="javax.swing.JTextArea" name="ta_command">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ta_commandKeyPressed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="bt_ejecutar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ejecutar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_ejecutarMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

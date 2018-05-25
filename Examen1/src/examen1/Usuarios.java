@@ -2,6 +2,7 @@
 
 package examen1;
 
+import static examen1.Principal.usuarios;
 import java.util.ArrayList;
 
 
@@ -74,7 +75,14 @@ public class Usuarios {
         this.clases = clases;
     }
     
-    
-    
+    public static int buscar(String user, String clave){
+        for(int i=0;i<usuarios.size();i++){
+            if(usuarios.get(i).getUsuario().equals(user)&&
+                    usuarios.get(i).getPassword().equals(clave)){
+                return 1;
+            }
+        }
+        return -1;
+    }
 
 }
