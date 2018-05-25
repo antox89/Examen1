@@ -579,15 +579,19 @@ public class Principal extends javax.swing.JFrame {
                 System.out.println("Nombre: "+persona.getNombre());
                 
                 Atributos at= new Atributos();
-                
+                Clases clas= new Clases();
                 String tipoAtributo=
-                        JOptionPane.showInputDialog("Tipo de la Clase");
-                
-                
+                        JOptionPane.showInputDialog("Atributo de la Clase");
+                at.setAtributo(tipoAtributo);                
                 
                 String nombreAtributo=
                         JOptionPane.showInputDialog("Nombre de la Clase");
-                ((Atributos)atributos.get(nClase)).setNombre(nombreAtributo);
+                //((Atributos)atributos.get(nClase)).setNombre(nombreAtributo);
+                
+                at.setNombre(nombreAtributo);
+                atributos.add(at);
+                clas.agregarAtributo(at);
+                
                 break;
                 
         }

@@ -5,22 +5,22 @@ package examen1;
 
 public class Atributos {
     
-    private Atributos atributo;
+    private String atributo;
     private String nombre;
 
     public Atributos() {
     }
 
-    public Atributos(Atributos atributo, String nombre) {
+    public Atributos(String atributo, String nombre) {
         this.atributo = atributo;
         this.nombre = nombre;
     }
 
-    public Atributos getAtributo() {
+    public String getAtributo() {
         return atributo;
     }
 
-    public void setAtributo(Atributos atributo) {
+    public void setAtributo(String atributo) {
         this.atributo = atributo;
     }
 
