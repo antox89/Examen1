@@ -44,19 +44,20 @@ public class Principal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        tf_nombrePerfil = new javax.swing.JTextField();
+        tf_edadPerfil = new javax.swing.JTextField();
+        tf_correoPerfil = new javax.swing.JTextField();
+        tf_usuarioPerfil = new javax.swing.JTextField();
+        tf_passwordPerfil = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jl_clases = new javax.swing.JList<>();
         jLabel16 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_atributos = new javax.swing.JList<>();
+        jLabel18 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -181,8 +182,6 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel12.setText("Correo:");
 
-        jLabel13.setText("Edad:");
-
         jLabel14.setText("Usuario:");
 
         jLabel15.setText("Password:");
@@ -202,30 +201,23 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_nombrePerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addGap(38, 38, 38)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(38, 38, 38)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_edadPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addGap(26, 26, 26)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_correoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPasswordField1)))))
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_usuarioPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_passwordPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115))
@@ -245,41 +237,56 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf_nombrePerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_edadPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_correoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_usuarioPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel15)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(tf_passwordPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)))
                 .addContainerGap(273, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Perfil", jPanel1);
 
+        jl_atributos.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jl_atributos);
+
+        jLabel18.setText("Lista de Atributos");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel18)
+                        .addGap(65, 65, 65)))
+                .addContainerGap(436, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("VIsualizar", jPanel2);
@@ -469,6 +476,8 @@ public class Principal extends javax.swing.JFrame {
             jd_logeado.pack();
             jd_logeado.setLocationRelativeTo(this);
             jd_logeado.setVisible(true);
+            
+            
         }
         else{
             JOptionPane.showMessageDialog(jd_logeado,"No existe ese usuario\n");
@@ -571,28 +580,64 @@ public class Principal extends javax.swing.JFrame {
                 }
                 break;
             case "add atribute":
+                
+                String tipoAtributo="", nombreAtributo="";
                 int nClase=Integer.parseInt(
-                        JOptionPane.showInputDialog("Posición de la Clase"));
+                        JOptionPane.showInputDialog("Posición del Atributo"));
                 nClase=nClase-1;
                 
                 Usuarios persona = usuarios.get(nClase);
+                
                 System.out.println("Nombre: "+persona.getNombre());
                 
-                Atributos at= new Atributos();
+                Atributos at= new Atributos(tipoAtributo, nombreAtributo);
                 Clases clas= new Clases();
-                String tipoAtributo=
-                        JOptionPane.showInputDialog("Atributo de la Clase");
+                
+                JOptionPane.showInputDialog("Atributo de la Clase");
                 at.setAtributo(tipoAtributo);                
                 
-                String nombreAtributo=
-                        JOptionPane.showInputDialog("Nombre de la Clase");
-                //((Atributos)atributos.get(nClase)).setNombre(nombreAtributo);
-                
+                JOptionPane.showInputDialog("Nombre del atributo");
                 at.setNombre(nombreAtributo);
-                atributos.add(at);
+                
                 clas.agregarAtributo(at);
+                atributos.add(at);
+                
+                
+                DefaultListModel model = (DefaultListModel)jl_atributos.getModel();
+                model.addElement(at);
+                jl_atributos.setModel(model);
+                
+                
+                ta_command.setText("");
+                JOptionPane.showMessageDialog(jd_logeado, "Atributo de clase creado con éxito");
                 
                 break;
+                
+            case "modify atribute":
+                int posAt=Integer.parseInt(
+                        JOptionPane.showInputDialog("Posición del atributo"));
+                
+                if(posAt>=0 && posAt <atributos.size() 
+                        && atributos.get(posAt) instanceof Atributos){
+                    String tipoAt=JOptionPane.showInputDialog("Nuevo tipo del atributo");
+                    ((Atributos)atributos.get(posAt)).setNombre(tipoAt);
+                    
+                    String nombreAt=JOptionPane.showInputDialog("Nuevo nombre del atributo");
+                    ((Atributos)atributos.get(posAt)).setNombre(nombreAt);
+                }
+                break;
+                
+            case "delete atribute":
+                int posA=Integer.parseInt(
+                        JOptionPane.showInputDialog("Eliminar Clase"));
+                
+                if(posA>=0 && posA <atributos.size() 
+                        && atributos.get(posA) instanceof Atributos){
+                    
+                    atributos.remove(posA);
+                }
+                break;
+                
                 
         }
     }//GEN-LAST:event_bt_ejecutarMouseClicked
@@ -648,11 +693,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -666,32 +711,32 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JDialog jd_logeado;
     private javax.swing.JDialog jd_registrar;
+    private javax.swing.JList<String> jl_atributos;
     private javax.swing.JList<String> jl_clases;
     private javax.swing.JTextArea ta_command;
+    private javax.swing.JTextField tf_correoPerfil;
+    private javax.swing.JTextField tf_edadPerfil;
     private javax.swing.JTextField tf_edadR;
     private javax.swing.JTextField tf_emailR;
+    private javax.swing.JTextField tf_nombrePerfil;
     private javax.swing.JTextField tf_nombreR;
     private javax.swing.JPasswordField tf_password;
+    private javax.swing.JPasswordField tf_passwordPerfil;
     private javax.swing.JPasswordField tf_passwordR;
     private javax.swing.JTextField tf_user;
     private javax.swing.JTextField tf_userR;
+    private javax.swing.JTextField tf_usuarioPerfil;
     // End of variables declaration//GEN-END:variables
 
-    public static int in;
     public static ArrayList<Atributos> atributos = new ArrayList();
     public static ArrayList<Usuarios> usuarios = new ArrayList();
     public static ArrayList<Clases> clase= new ArrayList();
-    String usu="admin",pass="123";
+    
     
 }
